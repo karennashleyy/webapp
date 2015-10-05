@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Main Street's Heart of the Holidays</title>
+<style>
+body {
+background-color: gray;
+font-family: Helvetica;
+}
+#main {
+width: 80%;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+}
+#header {
+margin-top: 0;
+border: ;
+padding: 5px;
+height: 250px;
+
+}
+
+
+#container{
+border: black;
+height: 40px;
+}
+
+
+}
+
+
+</style>
+</head>
+<body>
+<div id="main">
+<div id="header"><center><img src="lovesmtx.jpg" width="20%"><img src="null.jpg"></center>
+</div>
+<br>
+
+<center><table>
+<form  id="form1" action=" "/>
+<tr><td>
+<p>Which of these is most like you?</p></td><td>
+<input type="radio" name="type" id="owner" value="1" />Business Owner</td><td>
+<input type="radio" name="type" id="local" value="2" />San Marcos local</td><td>
+<input type="radio" name="type" id="student" value="3" />Student</td><td>
+<tr><td>
+<p>Which of these is most<br> enjoyable to you?</p></td><td>
+<input type="radio" name="activity" id="history" value="1" />History</td><td>
+<input type="radio" name="activity" id="wine" value="2" />Wine</td><td>
+<input type="radio"  name="activity"id="shop" value="3" />Shopping
+</td></tr>
+<tr><td>
+<p>Have you ever participated in a <br>Main Street event before?</p></td><td>
+<input type="radio" name="part" id="yes" value="1" />Yes</td><td>
+<input type="radio" name="part" id="no" value="2" />No</td><td>
+<input type="radio" name="part" id="nonresident" value="3" />I'm not a resident</td>
+</tr>
+<tr><td>
+<br />
+<input type="submit" value="Submit">
+</td></tr>
+</form>
+</table>
+</center>
+<p id="answer"></p>
+<p id="answer2"></p>
+
+<p><center>Click <a href="events.jpg">here</a> to see the full calendar!</center></p>
+</div>
+<script>
+   typevar = ['owner', 'local', 'student'];
+   activityvar = ['history', 'wine', 'shop'];
+   partvar = ['yes', 'no', 'nonresident'];
+    
+	   document.getElementById("form1").onsubmit=function() {
+	   for(i=0; i<typevar.length; i++) {
+	   if (document.getElementById(typevar[i]).checked) {
+	   type = document.getElementById(typevar[i]).value; 
+	   }
+	   }//end for
+	   
+	   for(i=0; i<activityvar.length; i++) {
+	   if (document.getElementById(activityvar[i]).checked) {
+	   activity = document.getElementById(activityvar[i]).value; 
+	   }
+	   }//end for
+	   
+	   for(i=0; i<partvar.length; i++) {
+	   if (document.getElementById(partvar[i]).checked) {
+	   part = document.getElementById(partvar[i]).value; 
+	   }
+	   }//end for
+	   
+	   total = parseInt(type) + parseInt(activity) + parseInt(part);
+	   document.getElementById("answer").innerHTML = total;
+	   
+	   if(total < 4) {
+document.getElementById("answer2").innerHTML = "Horse drawn historic tours, December 19";
+}
+   if(total >=4 && total < 7) {
+document.getElementById("answer2").innerHTML = "Wine & Wassail Walk, November 13";
+}
+	
+	if(total >=7) {
+document.getElementById("answer2").innerHTML = "Small Business Saturday, November 28";
+}   
+		   
+		    //here will be the pdf of events happening all season long 
+		   
+		   
+		   
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+	
+</script>
+
+
+</body>
+</html>
